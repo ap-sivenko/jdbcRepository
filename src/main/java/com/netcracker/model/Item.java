@@ -1,17 +1,20 @@
 package com.netcracker.model;
 
-import com.netcracker.repository.util.Persistable;
+import com.netcracker.jdbc.repository.Persistable;
 
-public class Items implements Persistable<Long> {
+public class Item implements Persistable<Long> {
+
+    public static final String TABLE_NAME = "items";
+    public static final String ID_COLUMN = "id";
 
     private Long id;
     private String name;
     private int age;
 
-    public Items() {
+    public Item() {
     }
 
-    public Items(String name, int age) {
+    public Item(String name, int age) {
         this.name = name;
         this.age = age;
     }

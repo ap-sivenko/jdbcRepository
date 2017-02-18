@@ -1,4 +1,4 @@
-package com.netcracker.repository.util;
+package com.netcracker.jdbc.repository;
 
 
 import java.io.Serializable;
