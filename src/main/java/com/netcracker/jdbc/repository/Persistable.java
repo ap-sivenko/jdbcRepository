@@ -1,9 +1,7 @@
 package com.netcracker.jdbc.repository;
 
 
-import java.io.Serializable;
-
-public interface Persistable<ID extends Serializable> {
+public interface Persistable<ID extends Number> {
     ID getId();
     void setId(ID id);
 }
