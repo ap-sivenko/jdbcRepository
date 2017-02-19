@@ -80,6 +80,17 @@ public abstract class GenericJdbcRepository<T extends Persistable<ID>, ID extend
         return this.jdbcTemplate.queryForObject(this.buildCountQuery(), Integer.class);
     }
 
+    @Override
+    public Optional<T> queryForObject(String sql, Object... args) {
+        T object = this.jdbcTemplate.queryForObject(sql, args, this.mapRow());
+        return Optional.ofNullable(object);
+    }
+
+    @Override
+    public List<T> queryForList(String sql, Object... args) {
+        return this.jdbcTemplate.query(sql, args, this.mapRow());
+    }
+
     private String buildFindOneQuery(){
         if (findOneQuery == null){
             findOneQuery = new StringBuilder("SELECT * FROM ")

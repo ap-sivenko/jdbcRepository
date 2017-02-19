@@ -11,4 +11,6 @@ public interface JdbcRepository<T extends Persistable<ID>, ID extends Number> {
     void delete(ID id);
     void deleteAll();
     long count();
+    Optional<T> queryForObject(String sql, Object ... args);
+    List<T> queryForList(String sql, Object... args);
 }
